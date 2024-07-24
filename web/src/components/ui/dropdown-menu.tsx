@@ -47,8 +47,8 @@ function DropdownMenuRadioItem({
     <RDM.RadioItem
       className={cn(
         "flex cursor-pointer items-center gap-2 rounded px-2 py-1 font-semibold outline-none transition-all",
-        "hover:bg-primary-200 dark:bg-primary-800",
-        "focus-visible:bg-primary-200 dark:bg-primary-800",
+        "hover:bg-primary-200 dark:hover:bg-primary-800",
+        "focus-visible:bg-primary-200 dark:focus-visible:bg-primary-800",
         className,
       )}
       {...rest}
