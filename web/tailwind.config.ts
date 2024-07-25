@@ -18,6 +18,12 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-montserrat)", ...fontFamily.sans],
       },
+      backgroundImage: {
+        "header-img": "url(/images/header.png)",
+      },
+      fontSize: {
+        xxs: ".625rem",
+      },
       keyframes: {
         slideUpAndFade: {
           from: {
@@ -59,6 +65,14 @@ const config: Config = {
             transform: "translateX(0)",
           },
         },
+        floating: {
+          from: {
+            transform: "translateY(-.375rem)",
+          },
+          to: {
+            transform: "translateY(.375rem)",
+          },
+        },
       },
       animation: {
         slideUpAndFade: "slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
@@ -68,6 +82,7 @@ const config: Config = {
           "slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideLeftAndFade:
           "slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)",
+        floating: "floating 2.5s alternate infinite",
       },
     },
   },

@@ -1,3 +1,6 @@
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Navbar } from "@/components/navbar";
 import type { ReactNode } from "react";
 
 interface IRoseMCLayout {
@@ -5,5 +8,12 @@ interface IRoseMCLayout {
 }
 
 export default function RoseMCLayout({ children }: Readonly<IRoseMCLayout>) {
-  return <main>{children}</main>;
+  return (
+    <>
+      <Header />
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
 }

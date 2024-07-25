@@ -3,16 +3,19 @@
 import { themes } from "@/constants/themes";
 import { SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
+import type { ComponentProps } from "react";
 import { Button } from "./ui/button";
 import { DropdownMenu } from "./ui/dropdown-menu";
 
-export function ToggleTheme() {
+interface IToggleTheme extends ComponentProps<typeof Button> {}
+
+export function ToggleTheme(props: IToggleTheme) {
   const { theme, setTheme } = useTheme();
 
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <Button type="button" variant="ghost" size="icon">
+        <Button type="button" variant="ghost" size="icon" {...props}>
           <SunMoon className="size-5" />
         </Button>
       </DropdownMenu.Trigger>

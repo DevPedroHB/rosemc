@@ -4,7 +4,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 const input = tv({
   slots: {
     root: [
-      "flex w-full items-center gap-2 rounded border border-primary-300 px-4 py-2 font-medium shadow transition-all dark:border-primary-700",
+      "relative flex w-full items-center gap-2 rounded border border-primary-300 px-4 py-2 font-medium shadow transition-all dark:border-primary-700",
       "focus-within:border-secondary-300 focus-within:ring-4 focus-within:ring-secondary-100 dark:focus-within:border-secondary-700 dark:focus-within:ring-secondary-900/20",
       "has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-75",
     ],
@@ -13,6 +13,7 @@ const input = tv({
       "disabled:cursor-not-allowed",
     ],
     slot: "text-primary-400 dark:text-primary-600",
+    error: "absolute -bottom-3.5 left-0 text-[.625rem] text-red-500",
   },
   variants: {
     variant: {
@@ -20,7 +21,7 @@ const input = tv({
         root: "bg-transparent",
       },
       search: {
-        root: "bg-primary-50 dark:bg-primary-950 focus-within:ring-0",
+        root: "bg-primary-50 focus-within:ring-0 dark:bg-primary-950",
       },
     },
   },
@@ -28,14 +29,23 @@ const input = tv({
     variant: "ghost",
   },
 });
-const { root, control, slot } = input();
+const { root, control, slot, error } = input();
 
-interface IInputRoot extends ComponentProps<"div">, VariantProps<typeof root> {}
+interface IInputRoot extends ComponentProps<"div">, VariantProps<typeof root> {
+  message?: string;
+}
 
-function InputRoot({ children, className, variant, ...rest }: IInputRoot) {
+function InputRoot({
+  children,
+  className,
+  variant,
+  message,
+  ...rest
+}: IInputRoot) {
   return (
     <div className={root({ variant, className })} {...rest}>
       {children}
+      {message && <InputError>{message}</InputError>}
     </div>
   );
 }
@@ -58,8 +68,21 @@ function InputSlot({ children, className, variant, ...rest }: IInputSlot) {
   );
 }
 
+interface IInputError
+  extends ComponentProps<"small">,
+    VariantProps<typeof error> {}
+
+function InputError({ children, className, variant, ...rest }: IInputError) {
+  return (
+    <small className={error({ variant, className })} {...rest}>
+      {children}
+    </small>
+  );
+}
+
 export const Input = {
   Root: InputRoot,
   Control: InputControl,
   Slot: InputSlot,
+  Error: InputError,
 };
