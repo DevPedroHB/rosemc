@@ -38,6 +38,7 @@ export function SearchForm() {
         <Input.Control
           type="search"
           placeholder={`Pesquisar por ...`}
+          required
           {...register("query")}
         />
       </Input.Root>

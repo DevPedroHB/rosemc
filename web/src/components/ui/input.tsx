@@ -23,6 +23,9 @@ const input = tv({
       search: {
         root: "bg-primary-50 focus-within:ring-0 dark:bg-primary-950",
       },
+      footer: {
+        root: "border-primary-700 bg-transparent focus-within:border-secondary-700 focus-within:ring-secondary-900/20",
+      },
     },
   },
   defaultVariants: {
