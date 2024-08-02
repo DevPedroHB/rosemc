@@ -31,7 +31,9 @@ export function Header() {
               className="size-40 animate-floating object-cover object-center lg:size-60"
             />
           </div>
-          <SearchForm />
+          <Suspense>
+            <SearchForm />
+          </Suspense>
           <ToggleTheme className="absolute right-6 top-6 text-primary-50" />
         </div>
       </div>

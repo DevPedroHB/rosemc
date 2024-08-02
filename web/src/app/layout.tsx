@@ -1,3 +1,4 @@
+import { env } from "@/env";
 import { cn } from "@/functions/cn";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
     default: "RoseMC",
   },
   description: "Site oficial da rede de servidores de Minecraft RoseMC.",
+  keywords: ["RoseMC", "Minecraft", "Servidores de Minecraft", "Jogos online"],
+  authors: [{ name: "PedroHB", url: "https://github.com/DevPedroHB" }],
+  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
 };
 
 interface ILayout {
@@ -29,7 +33,7 @@ export default function Layout({ children }: Readonly<ILayout>) {
     <html lang="pt-br" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen scroll-smooth bg-primary-50 font-sans text-primary-950 antialiased",
+          "min-h-screen overflow-x-hidden scroll-smooth bg-primary-50 font-sans text-primary-950 antialiased",
           "dark:bg-primary-950 dark:text-primary-50",
           montserrat.variable,
         )}

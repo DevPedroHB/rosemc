@@ -22,7 +22,10 @@ export function Footer() {
               const Icon = contact.icon;
 
               return (
-                <div className="flex flex-1 items-center gap-4">
+                <div
+                  key={contact.title}
+                  className="flex flex-1 items-center gap-4"
+                >
                   <Icon className="size-8 text-secondary-500" />
                   <div className="flex-1">
                     <h4 className="text-nowrap text-xl font-semibold">
@@ -47,7 +50,6 @@ export function Footer() {
                   height={1000}
                   className="size-14 object-cover object-center"
                 />
-                {/* Pequena descrição */}
                 <p className="min-w-64 text-sm text-primary-400">
                   Rede de servidores de Minecraft RoseMC, onde a diversão e a
                   aventura esperam por você. Não somos afiliados à Mojang AB de

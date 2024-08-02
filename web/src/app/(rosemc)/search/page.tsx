@@ -1,16 +1,31 @@
-import { jsonStringify } from "@/functions/json-stringify";
+import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 interface ISearch {
   searchParams: {
-    [key: string]: string | string[] | undefined;
+    query: string;
+  };
+}
+
+export async function generateMetadata({
+  searchParams,
+}: ISearch): Promise<Metadata> {
+  return {
+    title: `Pesquisando por ${searchParams.query}`,
   };
 }
 
 export default function Search({ searchParams }: ISearch) {
+  const { query } = searchParams;
+
+  if (!query) {
+    redirect("/");
+  }
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <main className="flex min-h-screen flex-col items-center justify-center">
       <h1>Page Search</h1>
-      <pre>{jsonStringify({ searchParams })}</pre>
-    </div>
+      <p>Resultados para: {query}</p>
+    </main>
   );
 }

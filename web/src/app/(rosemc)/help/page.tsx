@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ajuda",
+};
+
 export default function Help() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">

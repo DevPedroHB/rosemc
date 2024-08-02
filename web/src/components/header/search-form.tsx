@@ -1,5 +1,6 @@
 "use client";
 
+import { searchParams } from "@/functions/search-params";
 import { searchSchema, type SearchSchema } from "@/types/schemas/search-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Search } from "lucide-react";
@@ -8,9 +9,9 @@ import { useForm } from "react-hook-form";
 import { Input } from "../ui/input";
 
 export function SearchForm() {
-  const searchParams = useSearchParams();
+  const nextSearchParams = useSearchParams();
+  const params = searchParams.get<{ query: string }>(nextSearchParams);
   const router = useRouter();
-  const query = searchParams.get("query")?.toString();
 
   const {
     handleSubmit,
@@ -19,14 +20,14 @@ export function SearchForm() {
   } = useForm<SearchSchema>({
     resolver: zodResolver(searchSchema),
     defaultValues: {
-      query,
+      query: params.query,
     },
   });
 
   function handleSearch(data: SearchSchema) {
-    const urlSearchParams = new URLSearchParams(data);
+    const newParams = searchParams.set(data, nextSearchParams);
 
-    router.push(`/search?${urlSearchParams}`);
+    router.push(`/search?${newParams}`);
   }
 
   return (

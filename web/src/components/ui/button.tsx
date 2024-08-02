@@ -18,7 +18,8 @@ const button = tv({
         "bg-transparent shadow-none hover:bg-primary-950/5 dark:hover:bg-primary-50/5",
     },
     size: {
-      sm: "px-2 py-1",
+      xs: "px-1 py-0.5 text-xs",
+      sm: "px-2 py-1 text-sm",
       md: "px-4 py-2",
       full: "w-full py-2.5",
       icon: "aspect-square p-2",

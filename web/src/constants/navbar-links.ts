@@ -18,7 +18,7 @@ export const navbarLinks: INavbarLink[] = [
   {
     path: "/",
     icon: Home,
-    label: "Inicio",
+    label: "Início",
   },
   {
     path: "/store",
