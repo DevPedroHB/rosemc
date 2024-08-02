@@ -8,7 +8,7 @@ const navbarNavigationMenu = tv({
     item: "",
     trigger: [
       "flex h-full min-h-14 items-center gap-2 px-3 outline-none transition-all",
-      "hover:bg-secondary-600 focus:bg-secondary-600 data-[state=open]:bg-secondary-600",
+      "hover:bg-secondary-600 focus-visible:bg-secondary-600 data-[state=open]:bg-secondary-600",
     ],
     content: [
       "absolute rounded p-4 shadow",

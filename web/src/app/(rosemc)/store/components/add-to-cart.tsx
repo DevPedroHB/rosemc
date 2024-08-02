@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { faker } from "@/libs/faker";
+import { makeProduct } from "@/factories/make-product";
 import { useCartStore } from "@/stores/use-cart-store";
 import { ShoppingCart } from "lucide-react";
 
@@ -9,12 +9,10 @@ export function AddToCard() {
   const { add } = useCartStore();
 
   function handleAddToCart() {
+    const newProduct = makeProduct();
+
     add({
-      id: faker.string.uuid(),
-      name: faker.commerce.product(),
-      discount: faker.number.int({ min: 0, max: 10 }),
-      price: Number(faker.commerce.price({ min: 1, max: 100, dec: 2 })),
-      image: faker.image.url(),
+      ...newProduct,
       quantity: 1,
     });
   }

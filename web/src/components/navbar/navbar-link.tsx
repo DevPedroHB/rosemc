@@ -18,7 +18,7 @@ export function NavbarLink({ className, ...rest }: INavbarLink) {
           data-active={pathname === rest.href}
           className={cn(
             "flex items-center gap-2 px-3 py-4 font-medium outline-none transition-all",
-            "hover:bg-secondary-600 focus:bg-secondary-600 data-[active=true]:bg-secondary-600",
+            "hover:bg-secondary-600 focus-visible:bg-secondary-600 data-[active=true]:bg-secondary-600",
             className,
           )}
           {...rest}

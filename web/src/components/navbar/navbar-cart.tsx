@@ -21,8 +21,8 @@ export function NavbarCart() {
         </small>
       </NavbarNavigationMenu.Trigger>
       <NavbarNavigationMenu.Content
-        className="w-full max-w-sm space-y-2"
         align="right"
+        className="w-full max-w-sm space-y-2"
       >
         <div className="flex items-center justify-between gap-2">
           <h6 className="text-nowrap font-semibold">
