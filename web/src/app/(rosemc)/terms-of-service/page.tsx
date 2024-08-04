@@ -4,10 +4,10 @@ import { faker } from "@/libs/faker";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Políticas de privacidade",
+  title: "Termos de serviço",
 };
 
-export default function PrivacyPolicies() {
+export default function TermsOfService() {
   return (
     <Page.Root>
       <Card>

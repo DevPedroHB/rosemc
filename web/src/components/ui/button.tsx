@@ -35,16 +35,6 @@ interface IButton
   extends ComponentProps<"button">,
     VariantProps<typeof button> {}
 
-export function Button({
-  children,
-  className,
-  variant,
-  size,
-  ...rest
-}: IButton) {
-  return (
-    <button className={button({ variant, size, className })} {...rest}>
-      {children}
-    </button>
-  );
+export function Button({ className, variant, size, ...rest }: IButton) {
+  return <button className={button({ variant, size, className })} {...rest} />;
 }

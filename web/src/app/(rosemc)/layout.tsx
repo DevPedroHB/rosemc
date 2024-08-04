@@ -12,7 +12,9 @@ export default function RoseMCLayout({ children }: Readonly<IRoseMCLayout>) {
     <>
       <Header />
       <Navbar />
-      <main>{children}</main>
+      <main className="mx-auto w-full max-w-7xl space-y-4 px-6 py-4">
+        {children}
+      </main>
       <Footer />
     </>
   );

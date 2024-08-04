@@ -27,7 +27,7 @@ export function Navbar() {
 
   return (
     <NavigationMenu.Root className="sticky top-0 z-50 w-screen border-b-2 border-secondary-600 bg-secondary-500 text-primary-50 shadow">
-      <div className="relative mx-auto flex max-w-7xl justify-between px-6 max-lg:flex-col-reverse">
+      <div className="relative mx-auto flex w-full max-w-7xl justify-between px-6 max-lg:flex-col-reverse">
         <NavigationMenu.List className="flex max-lg:hidden">
           {navbarLinks.map((link) => {
             const Icon = link.icon;

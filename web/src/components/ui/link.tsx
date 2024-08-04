@@ -25,10 +25,6 @@ interface ILink
   extends ComponentProps<typeof NextLink>,
     VariantProps<typeof link> {}
 
-export function Link({ children, className, variant, ...rest }: ILink) {
-  return (
-    <NextLink className={link({ variant, className })} {...rest}>
-      {children}
-    </NextLink>
-  );
+export function Link({ className, variant, ...rest }: ILink) {
+  return <NextLink className={link({ variant, className })} {...rest} />;
 }

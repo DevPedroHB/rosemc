@@ -1,5 +1,4 @@
 import { env } from "@/env";
-import NextImage from "next/image";
 import { ImageResponse } from "next/og";
 import colors from "tailwindcss/colors";
 
@@ -30,7 +29,7 @@ export default async function Image() {
           flexDirection: "column",
         }}
       >
-        <NextImage
+        <img
           src={openGraphImageURL}
           alt={alt}
           style={{ width: "100%", objectFit: "cover", objectPosition: "top" }}

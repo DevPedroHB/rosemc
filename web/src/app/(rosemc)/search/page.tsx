@@ -1,3 +1,5 @@
+import { Card } from "@/components/ui/card";
+import { Page } from "@/components/ui/page";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
@@ -23,9 +25,11 @@ export default function Search({ searchParams }: ISearch) {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <h1>Page Search</h1>
-      <p>Resultados para: {query}</p>
-    </main>
+    <Page.Root>
+      <Card>
+        <h1 className="text-lg font-medium">Page Notification</h1>
+        <pre>{JSON.stringify(searchParams, null, 2)}</pre>
+      </Card>
+    </Page.Root>
   );
 }

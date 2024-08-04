@@ -77,19 +77,31 @@ export function Footer() {
             </div>
             <div className="flex flex-1 flex-wrap gap-5">
               {footerLinks.map((fl) => {
+                const linkGroups = [];
+
+                for (let i = 0; i < fl.links.length; i += 5) {
+                  linkGroups.push(fl.links.slice(i, i + 5));
+                }
+
                 return (
                   <div key={fl.title} className="space-y-10">
                     <FooterTitle>{fl.title}</FooterTitle>
-                    <div className="flex flex-col gap-3">
-                      {fl.links.map((link) => {
+                    <div className="flex flex-wrap gap-3">
+                      {linkGroups.map((group, index) => {
                         return (
-                          <Link
-                            key={link.path}
-                            variant="footer"
-                            href={link.path}
-                          >
-                            {link.label}
-                          </Link>
+                          <div key={index} className="flex flex-col gap-3">
+                            {group.map((link) => {
+                              return (
+                                <Link
+                                  key={link.path}
+                                  variant="footer"
+                                  href={link.path}
+                                >
+                                  {link.label}
+                                </Link>
+                              );
+                            })}
+                          </div>
                         );
                       })}
                     </div>
@@ -135,8 +147,8 @@ export function Footer() {
             </Link>
           </p>
           <div className="flex items-center gap-5">
-            <Link variant="footer" href="/terms-of-use">
-              Termos de uso
+            <Link variant="footer" href="/terms-of-service">
+              Termos de serviço
             </Link>
             <Link variant="footer" href="/privacy-policies">
               Políticas de privacidade

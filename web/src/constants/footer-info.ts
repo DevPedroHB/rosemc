@@ -53,31 +53,6 @@ interface IFooterLink {
 
 export const footerLinks: IFooterLink[] = [
   {
-    title: "Links Úteis",
-    links: [
-      {
-        path: "/store",
-        label: "Loja",
-      },
-      {
-        path: "/forum",
-        label: "Fórum",
-      },
-      {
-        path: "/help",
-        label: "Ajuda",
-      },
-      {
-        path: "/team",
-        label: "Equipe",
-      },
-      {
-        path: "/punishments",
-        label: "Punições",
-      },
-    ],
-  },
-  {
     title: "Produtos",
     links: [
       {
@@ -116,6 +91,26 @@ export const footerLinks: IFooterLink[] = [
       {
         path: "/forum/servers/murder",
         label: "Murder",
+      },
+      {
+        path: "/forum/servers/rankup",
+        label: "RankUP",
+      },
+      {
+        path: "/forum/servers/fullpvp",
+        label: "FullPvP",
+      },
+      {
+        path: "/forum/servers/factions",
+        label: "Factions",
+      },
+      {
+        path: "/forum/servers/survival",
+        label: "Survival",
+      },
+      {
+        path: "/forum/servers/criativo",
+        label: "Criativo",
       },
     ],
   },

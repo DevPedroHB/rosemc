@@ -32,9 +32,12 @@ const input = tv({
     variant: "ghost",
   },
 });
+
+interface IInput extends VariantProps<typeof input> {}
+
 const { root, control, slot, error } = input();
 
-interface IInputRoot extends ComponentProps<"div">, VariantProps<typeof root> {
+interface IInputRoot extends ComponentProps<"div">, IInput {
   message?: string;
 }
 
@@ -53,34 +56,22 @@ function InputRoot({
   );
 }
 
-interface IInputControl
-  extends ComponentProps<"input">,
-    VariantProps<typeof control> {}
+interface IInputControl extends ComponentProps<"input">, IInput {}
 
 function InputControl({ className, variant, ...rest }: IInputControl) {
   return <input className={control({ variant, className })} {...rest} />;
 }
 
-interface IInputSlot extends ComponentProps<"div">, VariantProps<typeof slot> {}
+interface IInputSlot extends ComponentProps<"div">, IInput {}
 
-function InputSlot({ children, className, variant, ...rest }: IInputSlot) {
-  return (
-    <div className={slot({ variant, className })} {...rest}>
-      {children}
-    </div>
-  );
+function InputSlot({ className, variant, ...rest }: IInputSlot) {
+  return <div className={slot({ variant, className })} {...rest} />;
 }
 
-interface IInputError
-  extends ComponentProps<"small">,
-    VariantProps<typeof error> {}
+interface IInputError extends ComponentProps<"small">, IInput {}
 
-function InputError({ children, className, variant, ...rest }: IInputError) {
-  return (
-    <small className={error({ variant, className })} {...rest}>
-      {children}
-    </small>
-  );
+function InputError({ className, variant, ...rest }: IInputError) {
+  return <small className={error({ variant, className })} {...rest} />;
 }
 
 export const Input = {
